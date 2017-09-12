@@ -123,7 +123,7 @@ public class Ex14 {
 		return (mat[i][j] > valueComeFrom);
 	}
 
-	public static void main(String[] args) {
+	public static void testMethods() {
 		int[] a = { 2, 4, 1, 6, 4, 2, 4, 3, 5 };
 		System.out.println(isWay(a) == true);
 		int[] b = { 1, 4, 3, 1, 2, 4, 3 };
