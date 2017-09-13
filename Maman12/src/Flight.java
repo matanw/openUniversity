@@ -27,7 +27,7 @@ public class Flight {
 	public Flight(Flight other) {
 		_origin = other._origin;
 		_destination = other._destination;
-		_departure = other._departure;
+		_departure = new Time1(other._departure);
 		_flightDuration = other._flightDuration;
 		_noOfPassengers = other._noOfPassengers;
 		_isFull = other._isFull;
