@@ -1,11 +1,22 @@
 
 public class Time2 {
+
+
+	private static final int MIN_VALUE_FOR_HOUR=0;
+	private static final int MIN_VALUE_FOR_MINUTE=0;
+	private static final int DEFAULT_VALUE_FOR_HOUR=0;
+	private static final int DEFAULT_VALUE_FOR_MINUTE=0;
+	private static final int MAX_VALUE_FOR_HOUR=23;
+	private static final int MAX_VALUE_FOR_MINUTE=59;
+	private static final int MINUTES_PER_HOURS=60;
+	private static final int SMALLEST_TWO_DIGITS_NUMBER=10;
+
 	private int _minFromMid;
 
 	public Time2(int h, int m) {
-		int hour = (h >= 0 && h <= 23 ? h : 0);
-		int minute = (m >= 0 && m <= 59 ? m : 0);
-		_minFromMid = hour * 60 + minute;
+		int hour = (h >= MIN_VALUE_FOR_HOUR && h <= MAX_VALUE_FOR_HOUR ? h : DEFAULT_VALUE_FOR_HOUR);
+		int minute = (m >= MIN_VALUE_FOR_MINUTE && m <= MAX_VALUE_FOR_MINUTE ? m : DEFAULT_VALUE_FOR_MINUTE);
+		_minFromMid = hour * MINUTES_PER_HOURS + minute;
 	}
 
 	public Time2(Time2 t) {
@@ -13,22 +24,22 @@ public class Time2 {
 	}
 
 	public int getHour() {
-		return _minFromMid / 60;
+		return _minFromMid / MINUTES_PER_HOURS;
 	}
 
 	public int getMinute() {
-		return _minFromMid % 60;
+		return _minFromMid % MINUTES_PER_HOURS;
 	}
 
 	public void setHour(int num) {
-		if (num >= 0 && num <= 23) {
-			_minFromMid = num * 60 + getMinute();
+		if (num >= MIN_VALUE_FOR_HOUR && num <= MAX_VALUE_FOR_HOUR) {
+			_minFromMid = num * MINUTES_PER_HOURS + getMinute();
 		}
 	}
 
 	public void setMinute(int num) {
-		if (num >= 0 && num <= 59) {
-			_minFromMid = getHour() * 60 + num;
+		if (num >= MIN_VALUE_FOR_MINUTE && num <= MAX_VALUE_FOR_HOUR) {
+			_minFromMid = getHour() * MINUTES_PER_HOURS + num;EJYKF
 		}
 	}
 
@@ -37,7 +48,7 @@ public class Time2 {
 	}
 
 	private String formatNumber(int num) {
-		return (num >= 10 ? "" : "0") + num;
+		return (num >= SMALLEST_TWO_DIGITS_NUMBER ? "" : "0") + num;
 	}
 
 	public int minFromMidnight() {

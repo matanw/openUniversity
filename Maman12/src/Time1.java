@@ -1,11 +1,22 @@
 
 public class Time1 {
+
+	private static final int MIN_VALUE_FOR_HOUR=0;
+	private static final int MIN_VALUE_FOR_MINUTE=0;
+	private static final int DEFAULT_VALUE_FOR_HOUR=0;
+	private static final int DEFAULT_VALUE_FOR_MINUTE=0;
+	private static final int MAX_VALUE_FOR_HOUR=23;
+	private static final int MAX_VALUE_FOR_MINUTE=59;
+	private static final int MINUTES_PER_HOURS=60;
+	private static final int SMALLEST_TWO_DIGITS_NUMBER=10;
+
+
 	private int _hour;
 	private int _minute;
 
 	public Time1(int h, int m) {
-		_hour = (h >= 0 && h <= 23 ? h : 0);
-		_minute = (m >= 0 && m <= 59 ? m : 0);
+		_hour = (h >= MIN_VALUE_FOR_HOUR && h <= MAX_VALUE_FOR_HOUR ? h : DEFAULT_VALUE_FOR_HOUR);
+		_minute = (m >= MIN_VALUE_FOR_MINUTE && m <= MAX_VALUE_FOR_MINUTE ? m : DEFAULT_VALUE_FOR_MINUTE);
 	}
 
 	public Time1(Time1 t) {
@@ -22,13 +33,13 @@ public class Time1 {
 	}
 
 	public void setHour(int num) {
-		if (num >= 0 && num <= 23) {
+		if (num >= MIN_VALUE_FOR_HOUR && num <= MAX_VALUE_FOR_HOUR) {
 			_hour = num;
 		}
 	}
 
 	public void setMinute(int num) {
-		if (num >= 0 && num <= 59) {
+		if (num >= MIN_VALUE_FOR_MINUTE && num <=MAX_VALUE_FOR_MINUTE) {
 			_minute = num;
 		}
 	}
@@ -38,11 +49,11 @@ public class Time1 {
 	}
 
 	private String formatNumber(int num) {
-		return (num >= 10 ? "" : "0") + num;
+		return (num >= SMALLEST_TWO_DIGITS_NUMBER ? "" : "0") + num;
 	}
 
 	public int minFromMidnight() {
-		return 60 * _hour + _minute;
+		return MINUTES_PER_HOURS * _hour + _minute;
 	}
 
 	public boolean equals(Time1 other) {
