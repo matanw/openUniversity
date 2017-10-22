@@ -1,15 +1,14 @@
 
 public class Time2 {
 
-
-	private static final int MIN_VALUE_FOR_HOUR=0;
-	private static final int MIN_VALUE_FOR_MINUTE=0;
-	private static final int DEFAULT_VALUE_FOR_HOUR=0;
-	private static final int DEFAULT_VALUE_FOR_MINUTE=0;
-	private static final int MAX_VALUE_FOR_HOUR=23;
-	private static final int MAX_VALUE_FOR_MINUTE=59;
-	private static final int MINUTES_PER_HOURS=60;
-	private static final int SMALLEST_TWO_DIGITS_NUMBER=10;
+	private static final int MIN_VALUE_FOR_HOUR = 0;
+	private static final int MIN_VALUE_FOR_MINUTE = 0;
+	private static final int DEFAULT_VALUE_FOR_HOUR = 0;
+	private static final int DEFAULT_VALUE_FOR_MINUTE = 0;
+	private static final int MAX_VALUE_FOR_HOUR = 23;
+	private static final int MAX_VALUE_FOR_MINUTE = 59;
+	private static final int MINUTES_PER_HOURS = 60;
+	private static final int SMALLEST_TWO_DIGITS_NUMBER = 10;
 
 	private int _minFromMid;
 
@@ -38,8 +37,8 @@ public class Time2 {
 	}
 
 	public void setMinute(int num) {
-		if (num >= MIN_VALUE_FOR_MINUTE && num <= MAX_VALUE_FOR_HOUR) {
-			_minFromMid = getHour() * MINUTES_PER_HOURS + num;EJYKF
+		if (num >= MIN_VALUE_FOR_MINUTE && num <= MAX_VALUE_FOR_MINUTE) {
+			_minFromMid = getHour() * MINUTES_PER_HOURS + num;
 		}
 	}
 
@@ -67,7 +66,7 @@ public class Time2 {
 		return other.before(this);
 	}
 
-	public int different(Time2 other) {
+	public int difference(Time2 other) {
 		return _minFromMid - other._minFromMid;
 	}
 }
